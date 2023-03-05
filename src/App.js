@@ -11,7 +11,7 @@ class App extends Component{
 
    render(){
       return(
-        <div className=" bg-gray-800 block">         
+        <div className=" bg-cyan-900 block">         
           <Navbar/>
           <Coursel/>
           <Card/>
