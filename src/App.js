@@ -5,7 +5,7 @@ import './App.css';
 import Navbar from './component/Navbar';
 import React from 'react';
 import Coursel from './component/coursel';
-import Card from './component/cards';
+import Cards from './component/cards';
 import Footer from './component/footer';
 class App extends Component{
 
@@ -14,7 +14,7 @@ class App extends Component{
         <div className=" bg-cyan-900 block">         
           <Navbar/>
           <Coursel/>
-          <Card/>
+          <Cards/>
           <Footer/>
         </div>
       )
