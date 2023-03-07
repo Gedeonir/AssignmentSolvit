@@ -1,13 +1,47 @@
-import React from "react";
+import React, { useState } from "react";
+import axios from "axios";
 
 const Form=()=>{
+    const [formData,setFormData]=useState({
+        title:"",
+        body:""
+
+    })
+
+
+    const handleSubmit=async (e)=>{
+        e.preventDefault();
+
+        const postData={
+            title:formData.title,
+            body:formData.body,
+            reactions:2,
+            tags:['french', 'fiction', 'english'],
+            userId:13
+        }
+
+        if (formData.title ===''|| formData.body==='') {
+            alert("All fields must not be empty")
+        } else {
+            await axios.post('https://dummyjson.com/posts/add',postData,{
+                Headers:{"Content-Type":'application/json'}
+            })
+            .then((response)=>{
+                console.log(response);
+            })
+        }
+    }
+
     return(
         
-<form className="border-2 mt-10 p-5 rounded-lg">    
+<form className="border-2 mt-10 p-5 rounded-lg " onSubmit={handleSubmit}>    
     
     <div className="mb-6">
         <label for="confirm_password" className="block mb-2 text-sm font-medium text-cyan-800">Blog Title</label>
-        <input type="text" id="blog-title" className="bg-gray-50 border border-cyan-800 text-gray-900 text-sm rounded-lg outline-none focus:ring-yellow-300 focus:border-yellow-300 block w-full p-2.5" placeholder="Blog title" required/>
+        <input type="text" value={formData.title} 
+        onChange={(e)=>setFormData({title:e.target.value})} 
+        id="blog-title" 
+        className="bg-gray-50 border border-cyan-800 text-gray-900 text-sm rounded-lg outline-none focus:ring-yellow-300 focus:border-yellow-300 block w-full p-2.5" placeholder="Blog title" required/>
     </div>
     <div className="mb-6">
         <div className="w-full mb-4 border border-gray-200 rounded-lg bg-gray-50">
@@ -65,7 +99,10 @@ const Form=()=>{
             </div>
             <div className="px-4 py-2 bg-white rounded-b-lg">
                 <label for="editor" className="sr-only">Publish post</label>
-                <textarea id="editor" rows="8" className="block w-full px-0 text-sm text-gray-800 bg-gray-50 border border-cyan-800 outline-none focus:ring-yellow-300 focus:border-yellow-300" placeholder="Write an article..." required></textarea>
+                <textarea
+                value={formData.body}
+                onChange={(e)=>setFormData({body:e.target.value})} 
+                 id="editor" rows="8" className="block w-full px-0 text-sm text-gray-800 bg-gray-50 border border-cyan-800 outline-none focus:ring-yellow-300 focus:border-yellow-300" placeholder="Write an article..." required></textarea>
             </div>
         </div>
     </div> 

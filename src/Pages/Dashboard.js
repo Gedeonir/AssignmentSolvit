@@ -21,7 +21,6 @@ const DashBoard=()=>{
                 {section=="Dashboard"?(
                     <>
                     <Cards/>
-                    <Table/>
                     </>
                 ):(
                     <Form/>
