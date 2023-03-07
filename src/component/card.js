@@ -1,24 +1,34 @@
+/* eslint-disable jsx-a11y/img-redundant-alt */
+/* eslint-disable jsx-a11y/heading-has-content */
 /* eslint-disable jsx-a11y/anchor-is-valid */
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const Card=({Id,title,body})=>{
+const Card=({img,name,population,capital,setShowDetails,key,setID})=>{
     return(
-        <div className="max-w-xs  m-auto  border  rounded-lg shadow bg-cyan-800 border-cyan-700 hover:bg-cyan-700">
-            <a href="#">
-                <img className="rounded-t-lg" src="https://cdn.pixabay.com/photo/2016/11/29/06/17/audience-1867754__340.jpg" alt="" />
-            </a>
-            <div className="p-5">
-                <a href="#">
-                    <h5 className="mb-2 text-2xl font-bold tracking-tight text-yellow-300">{title}</h5>
-                </a>
-                <p className="mb-3 font-normal text-yellow-100 truncate">{body}</p>
-                <a href="#" className="inline-flex m-3 items-center px-3 py-2 text-sm font-medium text-center text-cyan-800 bg-yellow-300 rounded-lg hover:bg-yellow-400 focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-yellow-300 dark:hover:bg-yellow-400 dark:focus:ring-yellow-300">
-                    Read more
-                </a>
+        <a href="#" onClick={setID(key)}>
+            <div className="lg:w-76  my-4   h-96 dark:bg-gray-700 dark:text-gray-50  bg-gray-50 rounded-xs shadow bg--800 hover:bg-gray-100 dark:hover:bg-gray-600">
+                <div className='h-56 w-full'>
+                    <img className="w-full h-full" src={img} alt="flag Image" />
+                </div>
+                <div className="py-2 px-4">
+                    <h2 className='py-3 font-bold'>{name}</h2>
+                    <div className='flex'>
+                        <p className="font-medium">Population:</p>
+                        <p className='font-light'>{population}</p>
+                    </div>
+                    <div className='flex'>
+                        <p className="font-medium">Population:</p>
+                        <p className='font-light'>{population}</p>
+                    </div>
+                    <div className='flex'>
+                        <p className="font-medium">Capital:</p>
+                        <p className='font-light'>{capital}</p>
+                    </div>
+                </div>
+                
             </div>
-            
-        </div>
+        </a>
     )
 }
 

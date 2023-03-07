@@ -4,20 +4,16 @@ import {Component} from 'react';
 import './App.css';
 import Navbar from './component/Navbar';
 import React from 'react';
-import Coursel from './component/coursel';
 import Cards from './component/cards';
-import Footer from './component/footer';
-class App extends Component{
+const App=()=>{
 
-   render(){
-      return(
-        <div className=" bg-cyan-900 block">         
-          <Navbar/>
-          <Coursel/>
-          <Cards/>
-          <Footer/>
-        </div>
-      )
-  }}
+
+    return(
+      <div className=" bg-gray-200 block min-h-screen dark:bg-gray-800">       
+        <Navbar/>
+        <Cards/>
+      </div>
+    )
+  }
 export default App;
 
